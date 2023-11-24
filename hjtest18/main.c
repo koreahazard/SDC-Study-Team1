@@ -1,11 +1,16 @@
 #include "ui/console/user_keyboard_input.h"
 #include "format_test/form_test.h"
+#include "format_test/make_file_from_format.h"
+#include "format_test/make_format_from_file.h"
 #include "data_repo/data_store.h"
 #include "write_post/post_write.h"
 #include "list_post/post_list.h"
 #include "read_post/post_read.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "file_io/how_to_make_file.h"
+#include "file_io/how_to_write_content.h"
+#include "file_io/how_to_read_content.h"
 
 #define MAX_OUTPUT_MESSAGE          512
 
@@ -39,6 +44,8 @@ int main (void)
         case 1: 
             printf("-----게시물 작성하기-----\n");
             post_write(data_storage);
+            write_format_to_file(data_storage[test_form_unique_id]);
+            increment_test_form_unique_id();
             break;
         case 2: 
             printf("2번 실행\n");
@@ -62,6 +69,6 @@ int main (void)
     
     // get_user_keyboard_hidden_input_with_message(password_message, keyboard_input);
     // printf("실제 사용자가 입력한 값은: %s\n", keyboard_input);
-
+    
     return 0;
 }

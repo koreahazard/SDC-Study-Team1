@@ -29,6 +29,7 @@ file(GLOB C_SOURCES
     "write_post/*.c"
     "list_post/*.c"
     "read_post/*.c"
+    "file_io/*.c"
 )
 
 file(GLOB CPP_TEST_SOURCES
